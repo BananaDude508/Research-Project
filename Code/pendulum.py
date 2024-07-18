@@ -20,22 +20,9 @@ class Pendulum:
         self.resistance = resistance # Positive, between 0 and 1
         self.calculate_end_position()
 
-        self.child = None
-    
-    def create_child(self, radius:float, angle:float, mass:float, resistance:float): # Creates a child as a linked list
-        self.child = Pendulum(radius, angle, (self.x, self.y), mass, self.gravity, resistance)
-        return self.child
-
-    def create_child_clone(self): # Creates a child as a linked list
-        self.child = Pendulum(self.radius, self.angle, (self.x, self.y), self.mass, self.gravity, self.resistance)
-        return self.child
-
     def draw(self, window, draw_child:bool=True) -> None: # Drawing the pendulum to the window
         pygame.draw.line(window, (0,0,255), (self.origin_x, self.origin_y), (self.x, self.y), 2)
         pygame.draw.circle(window, (255,0,0), (self.x, self.y), 5)
-
-        if self.child is not None and draw_child: 
-            self.child.draw(window, True)
 
     def calculate_end_position(self) -> None:
         self.x = self.origin_x + self.radius*sin(self.angle)
@@ -53,13 +40,3 @@ class Pendulum:
         self.angle += self.angular_velocity * delta_time # Calculate angle
 
         self.calculate_end_position()
-
-        if self.child is not None and loop_child:
-            self.child.origin_x = self.x
-            self.child.origin_y = self.y
-
-            angle_sum = old_angle + self.child.angle
-
-            self.child.angle = angle_sum - self.angle
-
-            self.child.loop(delta_time, True)

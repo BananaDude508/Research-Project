@@ -29,9 +29,9 @@ class Game:
     def draw(self) -> None:
         self.window.fill(self.BACKGROUND)
         self.cart.draw(self.window)
-        self.pendulum.draw(self.window, True)
+        self.pendulum.draw(self.window)
     
     def loop(self, delta_time) -> None:
         self.cart.loop(delta_time)
-        self.pendulum.loop(delta_time, True)
+        self.pendulum.loop(delta_time)
         self.draw()

@@ -20,10 +20,9 @@ def main() -> None:
     RESISTANCE = 0.99
 
 
-    main_pendulum = Pendulum(100, pi/2, (WIDTH//2, HEIGHT//2), 100, GRAVITY, RESISTANCE)
-    main_pendulum.create_child_clone()
+    pendulum = Pendulum(100, pi/2, (WIDTH//2, HEIGHT//2), 100, GRAVITY, RESISTANCE)
     cart = Cart()
-    game = Game(WIDTH, HEIGHT, TITLE, cart, main_pendulum) # Initialise the game and game window
+    game = Game(WIDTH, HEIGHT, TITLE, cart, pendulum) # Initialise the game and game window
     window = game.window # The display window that we will actually see running the MLA/player
 
     # We dont need to create any list for pendulums as they are "linked lists"
