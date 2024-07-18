@@ -15,13 +15,20 @@ def main() -> None:
     WIDTH = 700
     HEIGHT = 500
     TITLE = "Pendulum Simulation"
+
+    GRAVITY = 9.81
+    RESISTANCE = 0.99
+
+
+    main_pendulum = Pendulum(100, pi/2, (WIDTH//2, HEIGHT//2), 100, GRAVITY, RESISTANCE)
+    main_pendulum.create_child_clone()
     cart = Cart()
-    pendulums = [Pendulum(100, pi/2, (WIDTH//2, HEIGHT//2), 1, -9.81)] # We use a list incase we want to try using more than 1 linked pendulums
-    game = Game(WIDTH, HEIGHT, TITLE, cart, pendulums) # Initialise the game and game window
+    game = Game(WIDTH, HEIGHT, TITLE, cart, main_pendulum) # Initialise the game and game window
     window = game.window # The display window that we will actually see running the MLA/player
 
-    gravity = -9.81  # Some other information related to the simulation
-    resistance = 0.1
+    # We dont need to create any list for pendulums as they are "linked lists"
+    # This means each one contains its child instead of one master containing all of them
+    # It also means deleting one deletes all children from that point automatically
 
     FPS = 60
     clock = pygame.time.Clock()
@@ -32,7 +39,6 @@ def main() -> None:
                 if event.type == pygame.QUIT: # If we close the window, the simulation and execution stops
                     run = False
                     break
-
         game.loop(delta_time) # Run one step of the physics simulation and draw results to the screen
         
         pygame.display.update() # Updates the screen to display the current frame

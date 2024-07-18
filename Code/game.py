@@ -14,12 +14,12 @@ class Game:
     BLACK = (0, 0, 0)
     BACKGROUND = BLACK
 
-    def __init__(self, window_width:int, window_height:int, window_title:str, cart:Cart, pendulums:list[Pendulum]) -> None:
+    def __init__(self, window_width:int, window_height:int, window_title:str, cart:Cart, pendulum:Pendulum) -> None:
         self.WIDTH = window_width # The width of the display window
         self.HEIGHT = window_height # The height of the display window
         self.window = self.init_window(window_width, window_height, window_title) # The display window
         self.cart = cart # The cart that will move around
-        self.pendulums = pendulums # The pendulums that will be swinging
+        self.pendulum = pendulum # The pendulums that will be swinging
 
     def init_window(self, width:int, height:int, display_title:str) -> pygame.Surface:
         w = pygame.display.set_mode((width, height)) # Set resolution
@@ -29,11 +29,9 @@ class Game:
     def draw(self) -> None:
         self.window.fill(self.BACKGROUND)
         self.cart.draw(self.window)
-        for pendulum in self.pendulums:
-            pendulum.draw(self.window)
+        self.pendulum.draw(self.window, True)
     
     def loop(self, delta_time) -> None:
         self.cart.loop(delta_time)
-        for pendulum in self.pendulums:
-            pendulum.loop(delta_time)
+        self.pendulum.loop(delta_time, True)
         self.draw()
