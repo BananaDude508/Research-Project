@@ -2,6 +2,7 @@
 ### This is the primary script, which brings everything together
 ###
 
+# www.youtube.com/watch?v=NBWMtlbbOag
 
 import pygame
 pygame.init()
@@ -15,7 +16,7 @@ def main() -> None:
     HEIGHT = 500
     TITLE = "Pendulum Simulation"
     cart = Cart()
-    pendulums = [Pendulum(100, 0*pi, (WIDTH//2, HEIGHT//2))] # We use a list incase we want to try using more than 1 linked pendulums
+    pendulums = [Pendulum(100, 0*pi, (WIDTH//2, HEIGHT//2), 1)] # We use a list incase we want to try using more than 1 linked pendulums
     game = Game(WIDTH, HEIGHT, TITLE, cart, pendulums) # Initialise the game and game window
     window = game.window # The display window that we will actually see running the MLA/player
 
