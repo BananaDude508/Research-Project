@@ -2,7 +2,20 @@
 ### This is the primary script, which brings everything together
 ###
 
-# www.youtube.com/watch?v=NBWMtlbbOag
+# 19th July: www.youtube.com/watch?v=NBWMtlbbOag
+## The Coding Train: "Coding Challenge #159: Simple Pendulum Simulation" (youtube)
+## The ground work for the initial functionality and some derivation of the physics simulation
+
+# 19th July: https://www.youtube.com/watch?v=EvV5Qtp_fYg&t
+## Pezzza's Work: "How to train simple AIs" (youtube)
+## How an ai can be trained, although example given in an almost identical usecase to mine so may not use this as a reference
+
+# 19th July: https://www.cantorsparadise.com/modelling-and-simulation-of-inverted-pendulum-5ac423fed8ac
+## Modelling and Simulation of Inverted Pendulum (medium)
+## Provides equations useful for the simulation, including the equation for an inverted pendulum on a cart
+## Unfortunately does not contain any derivations and those will require more searching
+
+
 
 import pygame
 pygame.init()
