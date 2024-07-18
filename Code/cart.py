@@ -4,4 +4,11 @@
 
 
 class Cart:
-    pass
+    def __init__(self) -> None:
+        pass
+    
+    def draw(self, window) -> None:
+        pass
+
+    def loop(self, delta_time) -> None:
+        pass

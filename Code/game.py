@@ -10,6 +10,10 @@ from cart import Cart
 
 
 class Game:
+    FONT = pygame.font.SysFont("comicsans", 50)
+    BLACK = (0, 0, 0)
+    BACKGROUND = BLACK
+
     def __init__(self, window_width:int, window_height:int, window_title:str, cart:Cart, pendulums:list[Pendulum]) -> None:
         self.WIDTH = window_width # The width of the display window
         self.HEIGHT = window_height # The height of the display window
@@ -21,3 +25,15 @@ class Game:
         w = pygame.display.set_mode((width, height)) # Set resolution
         pygame.display.set_caption(display_title) # Set title
         return w # Returns the created window
+
+    def draw(self) -> None:
+        self.window.fill(self.BACKGROUND)
+        self.cart.draw(self.window)
+        for pendulum in self.pendulums:
+            pendulum.draw(self.window)
+    
+    def loop(self, delta_time) -> None:
+        self.cart.loop(delta_time)
+        for pendulum in self.pendulums:
+            pendulum.loop(delta_time)
+        self.draw()
