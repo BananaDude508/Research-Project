@@ -28,10 +28,10 @@ class Game:
 
     def draw(self) -> None:
         self.window.fill(self.BACKGROUND)
-        self.cart.draw(self.window)
+        self.cart.draw(self.window, True, self.WIDTH)
         self.pendulum.draw(self.window)
     
-    def loop(self, delta_time) -> None:
-        self.cart.loop(delta_time)
+    def loop(self, delta_time, cart_move_dir) -> None:
+        self.cart.loop(delta_time, cart_move_dir)
         self.pendulum.loop(delta_time)
         self.draw()
