@@ -4,13 +4,18 @@
 
 
 # 19th July: www.youtube.com/watch?v=NBWMtlbbOag
-## The Coding Train: "Coding Challenge #159: Simple Pendulum Simulation" (youtube)
+## The Coding Train: "Coding Challenge #159: Simple Pendulum Simulation" (youtube.com)
 ## The ground work for the initial functionality and some derivation of the physics simulation
 
 # 19th July: https://www.youtube.com/watch?v=EvV5Qtp_fYg&t
-## Pezzza's Work: "How to train simple AIs" (youtube)
+## Pezzza's Work: "How to train simple AIs" (youtube.com)
 ## How an ai can be trained, although example given in an almost identical usecase to mine so may not use this as a reference
 
+# 20th July: https://www.myphysicslab.com/pendulum/moveable-pendulum-en.html
+## myPhysicsLab: Moveable Pendulum (myphysicslab.com)
+## Contains a simple simulation for a pendulum that can be dragged around
+## a moving point and react to the movement. Also contains formulas and 
+## derivations for the formulas used
 
 import pygame
 pygame.init()
@@ -25,14 +30,18 @@ def main() -> None:
     MIDPOINT = (WIDTH//2, HEIGHT//2)
     TITLE = "Pendulum Simulation"
 
-    GRAVITY = 9.81
-    PENDULUM_RESISTANCE = 0.99
+    GRAVITY = 5
+
+    PENDULUM_RADIUS = 75
+    PENDULUM_DRAW_RADIUS = 100
+    PENDULUM_RESISTANCE = 500
+    PENDULUM_MASS = 10
 
     CART_ACCEL = 2500
     CART_FRICTION = 0.1
 
 
-    pendulum = Pendulum(100, pi/2, MIDPOINT, 100, GRAVITY, PENDULUM_RESISTANCE)
+    pendulum = Pendulum(PENDULUM_RADIUS, PENDULUM_DRAW_RADIUS, pi/2, MIDPOINT, PENDULUM_MASS, GRAVITY, PENDULUM_RESISTANCE)
     cart = Cart(MIDPOINT, CART_ACCEL, CART_FRICTION, pendulum)
     game = Game(WIDTH, HEIGHT, TITLE, cart, pendulum) # Initialise the game and game window
     window = game.window # The display window that we will actually see running the MLA/player
@@ -62,7 +71,7 @@ def main() -> None:
 
 
         game.loop(delta_time, cart_move_dir) # Run one step of the physics simulation and draw results to the screen
-        
+        # pendulum.draw_forces(window, True, True) # Draw debug forces to the screen (gravity, velocity)
         pygame.display.update() # Updates the screen to display the current frame
 
 

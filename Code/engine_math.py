@@ -1,5 +1,3 @@
-
-
 def clamped(value, min, max) -> float:
     if min <= value <= max:
         return value
@@ -7,3 +5,6 @@ def clamped(value, min, max) -> float:
         return min
     if max <= value:
         return max
+
+def sign(value) -> int:
+    return value/abs(value)

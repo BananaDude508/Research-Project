@@ -32,6 +32,6 @@ class Game:
         self.pendulum.draw(self.window)
     
     def loop(self, delta_time, cart_move_dir) -> None:
-        self.cart.loop(delta_time, cart_move_dir)
+        self.cart.loop(delta_time, cart_move_dir, True, self.WIDTH, self.pendulum.draw_radius)
         self.pendulum.loop(delta_time)
         self.draw()

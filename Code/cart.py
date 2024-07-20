@@ -5,7 +5,7 @@
 
 import pygame
 pygame.init()
-from engine_math import clamped
+from engine_math import clamped,sign
 from pendulum import Pendulum
 
 class Cart:
@@ -43,12 +43,21 @@ class Cart:
                             (self.x-20, self.y),
                             (self.x+20, self.y)))
 
-    def loop(self, delta_time, move_dir) -> None:
+    def loop(self, delta_time, move_dir, limit_to_screen, screen_width, pendulum_draw_radius) -> None:
         move_dir = clamped(move_dir,-1,1) # Make sure that move_dir is between 0 and 1, so we cant exceed the normal acceleration
+        
+        old_speed = self.speed
+        
         self.speed += self.acceleration * move_dir * delta_time
         self.speed *= 1 - self.friction
+
         self.x += self.speed * delta_time
+        
+        if limit_to_screen:
+            if self.x > screen_width - pendulum_draw_radius:
+                self.x = screen_width - pendulum_draw_radius
+            if self.x < pendulum_draw_radius:
+                self.x = pendulum_draw_radius
 
-        self.child_pendulum.move_parent((self.x, self.y))
+        self.child_pendulum.move_cart_parent(self.x, self.speed, self.speed - old_speed)
 
-        print(self.speed)
