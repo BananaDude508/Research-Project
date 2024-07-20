@@ -47,6 +47,12 @@ class Pendulum:
        # self.calculate_end_position()
        '''
 
+
+        ### TODO:
+        ### - Figure out why pendulum sometimes stutters and doesnt move, then fix it
+        ### -- Spinning right, cart moves right to push it to the left, pendulum moves right instead of changing to left???
+        ### --- Not just when spinning right, and similar issues sometimes appear
+
         '''NEW METHOD, CART X MOVEMENT (myPhysicsLab)'''
         # I split it up into single letter vars that myPhysicsLab uses for ease of copying down
         R = self.radius
