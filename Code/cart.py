@@ -55,8 +55,10 @@ class Cart:
         
         if limit_to_screen:
             if self.x > screen_width - pendulum_draw_radius:
+                self.speed = 0
                 self.x = screen_width - pendulum_draw_radius
             if self.x < pendulum_draw_radius:
+                self.speed = 0
                 self.x = pendulum_draw_radius
 
         self.child_pendulum.move_cart_parent(self.x, self.speed, self.speed - old_speed)
