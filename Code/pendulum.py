@@ -74,9 +74,9 @@ class Pendulum:
         thetadd = sum1+sum2+sum3+sum4 
         self.angular_acceleration = thetadd # theta double derivative is acceleration
 
-        self.angular_velocity += self.angular_acceleration # Calculate velocity
+        self.angular_velocity += self.angular_acceleration * delta_time # Calculate velocity
 
-        self.angle += self.angular_velocity * delta_time # Calculate angle
+        self.angle += self.angular_velocity # Calculate angle
 
         self.calculate_end_position()
     
