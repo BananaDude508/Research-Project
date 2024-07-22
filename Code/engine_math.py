@@ -7,4 +7,4 @@ def clamped(value, min, max) -> float:
         return max
 
 def sign(value) -> int:
-    return value/abs(value)
+    return value/abs(value) if value != 0 else 0
