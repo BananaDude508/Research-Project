@@ -3,7 +3,7 @@
 ###
 
 
-# 19th July: www.youtube.com/watch?v=NBWMtlbbOag
+# 19th July: https://www.youtube.com/watch?v=NBWMtlbbOag
 ## The Coding Train: "Coding Challenge #159: Simple Pendulum Simulation" (youtube.com)
 ## The ground work for the initial functionality and some derivation of the physics simulation
 
@@ -34,14 +34,14 @@ def main() -> None:
 
     PENDULUM_RADIUS = 100
     PENDULUM_DRAW_RADIUS = 100
-    PENDULUM_RESISTANCE = 150000
+    PENDULUM_RESISTANCE = 100000
     PENDULUM_MASS = 150
 
     CART_ACCEL = 2500
     CART_FRICTION = 0.1
 
 
-    pendulum = Pendulum(PENDULUM_RADIUS, PENDULUM_DRAW_RADIUS, pi/2, MIDPOINT, PENDULUM_MASS, GRAVITY, PENDULUM_RESISTANCE)
+    pendulum = Pendulum(PENDULUM_RADIUS, PENDULUM_DRAW_RADIUS, 0, MIDPOINT, PENDULUM_MASS, GRAVITY, PENDULUM_RESISTANCE)
     cart = Cart(MIDPOINT, CART_ACCEL, CART_FRICTION, pendulum)
     game = Game(WIDTH, HEIGHT, TITLE, cart, pendulum) # Initialise the game and game window
     window = game.window # The display window that we will actually see running the MLA/player

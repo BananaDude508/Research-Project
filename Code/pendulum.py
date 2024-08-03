@@ -65,14 +65,13 @@ class Pendulum:
         thetad = self.angular_velocity # d meaning derivative (change in angle over time)
 
         # The 4 components here are summed to find acceleration
-        sum1 = -(cos(theta)/R)*x0dd
+        sum1 = (cos(theta)/R)*x0dd
         # sum2 = -(cos(theta)/R)*y0dd
         sum2 = 0 # Sum 2 calculation always results in 0, because the cart should never move in Y position
-        sum3 = -(b/(m*R*R))*thetad
-        sum4 = -(g/R)*sin(theta)
+        sum3 = (b/(m*R*R))*thetad
+        sum4 = (g/R)*sin(theta)
 
-        thetadd = sum1+sum2+sum3+sum4 
-        self.angular_acceleration = thetadd # theta double derivative is acceleration
+        self.angular_acceleration = -sum1-sum2-sum3-sum4 
 
         self.angular_velocity += self.angular_acceleration * delta_time # Calculate velocity
 
