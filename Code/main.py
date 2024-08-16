@@ -17,12 +17,14 @@
 ## a moving point and react to the movement. Also contains formulas and 
 ## derivations for the formulas used
 
+import neat.config
 import pygame
 pygame.init()
 from game import Game
 from pendulum import Pendulum
 from cart import Cart
 from math import pi
+import neat
 
 def main() -> None:
     WIDTH = 700
@@ -77,4 +79,3 @@ def main() -> None:
 
 if __name__ == '__main__': # Only run if this is the executed program, 
     main()                 # and doesnt run if its imported into another script
-    
