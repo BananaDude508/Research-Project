@@ -43,14 +43,11 @@ def main() -> None:
     CART_FRICTION = 0.1
 
 
-    pendulum = Pendulum(PENDULUM_RADIUS, PENDULUM_DRAW_RADIUS, 0, MIDPOINT, PENDULUM_MASS, GRAVITY, PENDULUM_RESISTANCE)
+    pendulum = Pendulum(PENDULUM_RADIUS, PENDULUM_DRAW_RADIUS, 2/3 * pi, MIDPOINT, PENDULUM_MASS, GRAVITY, PENDULUM_RESISTANCE)
     cart = Cart(MIDPOINT, CART_ACCEL, CART_FRICTION, pendulum)
     game = Game(WIDTH, HEIGHT, TITLE, cart, pendulum) # Initialise the game and game window
     window = game.window # The display window that we will actually see running the MLA/player
 
-    # We dont need to create any list for pendulums as they are "linked lists"
-    # This means each one contains its child instead of one master containing all of them
-    # It also means deleting one deletes all children from that point automatically
 
     FPS = 60
     clock = pygame.time.Clock()
