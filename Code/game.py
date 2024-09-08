@@ -14,10 +14,10 @@ class Game:
     BLACK = (0, 0, 0)
     BACKGROUND = BLACK
 
-    def __init__(self, window_width:int, window_height:int, window_title:str, cart:Cart, pendulum:Pendulum) -> None:
+    def __init__(self, window_width:int, window_height:int, window_title:str, cart:Cart, pendulum:Pendulum, draw:bool=True) -> None:
         self.WIDTH = window_width # The width of the display window
         self.HEIGHT = window_height # The height of the display window
-        self.window = self.init_window(window_width, window_height, window_title) # The display window
+        if draw: self.window = self.init_window(window_width, window_height, window_title) # The display window
         self.cart = cart # The cart that will move around
         self.pendulum = pendulum # The pendulums that will be swinging
 
@@ -31,7 +31,7 @@ class Game:
         self.cart.draw(self.window, True, self.WIDTH)
         self.pendulum.draw(self.window)
     
-    def loop(self, delta_time, cart_move_dir) -> None:
+    def loop(self, delta_time, cart_move_dir, draw=True) -> None:
         self.cart.loop(delta_time, cart_move_dir, True, self.WIDTH, self.pendulum.draw_radius)
         self.pendulum.loop(delta_time)
-        self.draw()
+        if draw: self.draw()

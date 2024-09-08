@@ -1,8 +1,3 @@
-###
-### This script will manage the simulation of the cart
-###
-
-
 import pygame
 pygame.init()
 from engine_math import clamped,sign
