@@ -8,8 +8,15 @@ from engine_math import *
 import neat
 import pickle
 import time
-import os
 import sys
+
+def read_from_pickle(path):
+    with open(path, 'rb') as file:
+        try:
+            while True:
+                yield pickle.load(file)
+        except EOFError:
+            pass
 
 def eval_genomes(genomes, config) -> None:
     WIDTH = 700
@@ -60,7 +67,7 @@ def eval_genomes(genomes, config) -> None:
             ]
             
             output = net.activate(inputs)
-            cart_move_dir = output[0]/10  # Neural network output
+            cart_move_dir = (output[0]-5)/10  # Neural network output
             #print(cart_move_dir)
 
             game.loop(delta_time, cart_move_dir, draw=False) # Run one step of the physics simulation and draw results to the screen
@@ -80,7 +87,8 @@ def eval_genomes(genomes, config) -> None:
             # pygame.display.update() # Updates the screen to display the current frame
 
 def run_neat(config_path):
-    population = neat.Checkpointer.restore_checkpoint('neat-checkpoint-56')
+    population = neat.Checkpointer.restore_checkpoint('neat-checkpoint-367')
+    # population = neat.Population(config)
     
     config = neat.config.Config(
         neat.DefaultGenome,
@@ -90,7 +98,6 @@ def run_neat(config_path):
         config_path
     )
 
-    # population = neat.Population(config)
 
     population.add_reporter(neat.StdOutReporter(True))
     stats = neat.StatisticsReporter()
@@ -99,11 +106,6 @@ def run_neat(config_path):
 
     winner = population.run(eval_genomes, 1)
 
-    with open("best_genome.pickle", "wb") as f:
-        pickle.dump(winner, f)
-
-    print("Best genome saved!")
-    
     return winner
 
 if __name__ == '__main__':
@@ -118,29 +120,22 @@ if __name__ == '__main__':
     
     f = open('output.txt', 'w')
 
-    # sysoldout = sys.stdout
-    # sys.stdout = f
+    sysoldout = sys.stdout
+    sys.stdout = f
     
     print(f"Start time: {time.asctime()}")
     start_time = time.time()
-    
-    config_path = "../Research-Project/Code/config-feedforward.txt"
-    config = neat.config.Config(
-        neat.DefaultGenome,
-        neat.DefaultReproduction,
-        neat.DefaultSpeciesSet,
-        neat.DefaultStagnation,
-        config_path
-    )
+
     winner = run_neat(config_path)
+
     print("\nBest genome:\n{!s}".format(winner))
     net = neat.nn.FeedForwardNetwork.create(winner, config)
     
     end_time = time.time() - start_time
     print(f"End time: {time.asctime()} ({end_time} total seconds)")
     
-    # sys.stdout = sysoldout
-    # f.close()
+    sys.stdout = sysoldout
+    f.close()
     
     WIDTH = 700
     HEIGHT = 500
@@ -181,7 +176,7 @@ if __name__ == '__main__':
                 cart.acceleration
             ]
         output = net.activate(inputs)
-        cart_move_dir = output[0]/10
+        cart_move_dir = (output[0]-5)/10
         print(cart_move_dir)
 
         game.loop(delta_time, cart_move_dir, draw=True)
