@@ -87,9 +87,7 @@ def eval_genomes(genomes, config) -> None:
             # pygame.display.update() # Updates the screen to display the current frame
 
 def run_neat(config_path):
-    population = neat.Checkpointer.restore_checkpoint('neat-checkpoint-367')
-    # population = neat.Population(config)
-    
+
     config = neat.config.Config(
         neat.DefaultGenome,
         neat.DefaultReproduction,
@@ -98,14 +96,16 @@ def run_neat(config_path):
         config_path
     )
 
+    population = neat.Checkpointer.restore_checkpoint('neat-checkpoint-210')
+    # population = neat.Population(config)
+    
 
     population.add_reporter(neat.StdOutReporter(True))
     stats = neat.StatisticsReporter()
     population.add_reporter(stats)
     population.add_reporter(neat.Checkpointer(1))
 
-    winner = population.run(eval_genomes, 1)
-
+    winner = population.run(eval_genomes)
     return winner
 
 if __name__ == '__main__':
