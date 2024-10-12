@@ -1,0 +1,51 @@
+Start time: Sat Oct 12 12:18:52 2024
+
+ ****** Running generation 367 ****** 
+
+Population's average fitness: 67.99210 stdev: 28.08404
+Best fitness: 222.07937 - size: (14, 10) - species 23 - id 30
+Average adjusted fitness: 0.193
+Mean genetic distance 2.610, standard deviation 0.748
+Population of 46 members in 2 species:
+   ID   age  size  fitness  adj fit  stag
+  ====  ===  ====  =======  =======  ====
+    23   80    26    222.1    0.216     0
+    25   14    20     80.8    0.170     8
+Total extinctions: 0
+Generation time: 144.219 sec
+Saving checkpoint to neat-checkpoint-367
+
+Best genome:
+Key: 30
+Fitness: 222.07937174532657
+Nodes:
+	0 DefaultNodeGene(key=0, bias=2.094714123021479, response=1.0, activation=relu, aggregation=sum)
+	3580 DefaultNodeGene(key=3580, bias=4.334096133928574, response=1.0, activation=relu, aggregation=sum)
+	5857 DefaultNodeGene(key=5857, bias=3.95636985911874, response=1.0, activation=relu, aggregation=sum)
+	6104 DefaultNodeGene(key=6104, bias=1.6234102399870483, response=1.0, activation=relu, aggregation=sum)
+	6918 DefaultNodeGene(key=6918, bias=3.291666891997825, response=1.0, activation=relu, aggregation=sum)
+	7159 DefaultNodeGene(key=7159, bias=4.374506839377789, response=1.0, activation=relu, aggregation=sum)
+	7331 DefaultNodeGene(key=7331, bias=4.226675675898731, response=1.0, activation=relu, aggregation=sum)
+	7381 DefaultNodeGene(key=7381, bias=1.4061279808606941, response=1.0, activation=relu, aggregation=sum)
+	7512 DefaultNodeGene(key=7512, bias=2.5943109798547757, response=1.0, activation=relu, aggregation=sum)
+	7528 DefaultNodeGene(key=7528, bias=0.9599911429470934, response=1.0, activation=relu, aggregation=sum)
+	7680 DefaultNodeGene(key=7680, bias=2.657722962978065, response=1.0, activation=relu, aggregation=sum)
+	7724 DefaultNodeGene(key=7724, bias=2.0265077674331344, response=1.0, activation=relu, aggregation=sum)
+	7785 DefaultNodeGene(key=7785, bias=4.506358401267848, response=1.0, activation=relu, aggregation=sum)
+	7838 DefaultNodeGene(key=7838, bias=4.393335563115271, response=1.0, activation=relu, aggregation=sum)
+Connections:
+	DefaultConnectionGene(key=(-1, 3580), weight=2.7339900105998214, enabled=True)
+	DefaultConnectionGene(key=(-1, 6918), weight=0.010719789235041022, enabled=True)
+	DefaultConnectionGene(key=(0, 6104), weight=2.770188540506159, enabled=True)
+	DefaultConnectionGene(key=(0, 7724), weight=-0.5826541887947111, enabled=True)
+	DefaultConnectionGene(key=(3580, 0), weight=4.291250923795272, enabled=True)
+	DefaultConnectionGene(key=(3580, 5857), weight=-3.2012405822390684, enabled=False)
+	DefaultConnectionGene(key=(3580, 7331), weight=-0.41850461620632107, enabled=False)
+	DefaultConnectionGene(key=(7381, 5857), weight=0.2225585687205246, enabled=False)
+	DefaultConnectionGene(key=(7381, 7528), weight=2.471195439718241, enabled=True)
+	DefaultConnectionGene(key=(7381, 7838), weight=-0.053951576636750605, enabled=True)
+	DefaultConnectionGene(key=(7528, 5857), weight=-0.6963368249181883, enabled=True)
+	DefaultConnectionGene(key=(7680, 5857), weight=-1.673103348475532, enabled=False)
+	DefaultConnectionGene(key=(7680, 7724), weight=1.6197490881759378, enabled=True)
+	DefaultConnectionGene(key=(7838, 5857), weight=2.2755782982930928, enabled=True)
+End time: Sat Oct 12 12:21:16 2024 (144.28756427764893 total seconds)

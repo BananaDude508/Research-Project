@@ -109,7 +109,6 @@ def run_neat(config_path):
     return winner
 
 if __name__ == '__main__':
-    """
     config_path = "../Research-Project/Code/config-feedforward.txt"
     config = neat.config.Config(
         neat.DefaultGenome,
@@ -119,7 +118,7 @@ if __name__ == '__main__':
         config_path
     )
     
-    f = open('output.txt', 'w')
+    f = open('output1.txt', 'w')
 
     sysoldout = sys.stdout
     sys.stdout = f
@@ -137,7 +136,7 @@ if __name__ == '__main__':
     
     sys.stdout = sysoldout
     f.close()
-    """
+    
     WIDTH = 700
     HEIGHT = 500
     MIDPOINT = (WIDTH//2, HEIGHT//2)
@@ -168,7 +167,7 @@ if __name__ == '__main__':
         for event in pygame.event.get():
             if event.type == pygame.QUIT:
                 run = False
-        """
+        
         inputs = [
                 pendulum.angle,
                 pendulum.angular_velocity,
@@ -176,17 +175,18 @@ if __name__ == '__main__':
                 cart.speed,
                 cart.acceleration
             ]
-        cart_move_dir = (output[0]-5)/10
         output = net.activate(inputs)
-        """
+        cart_move_dir = (output[0]-5)/10
         
-    
+        
+        """
         cart_move_dir = 0
         keys = pygame.key.get_pressed()
         if keys[pygame.K_a]:
             cart_move_dir = -1
         elif keys[pygame.K_d]:
             cart_move_dir = 1
+        """
         print(cart_move_dir)
 
         game.loop(delta_time, cart_move_dir, draw=True)
