@@ -1,51 +1,45 @@
-Start time: Sat Oct 12 12:18:52 2024
+Start time: Tue Oct 15 09:16:40 2024
 
- ****** Running generation 367 ****** 
+ ****** Running generation 780 ****** 
 
-Population's average fitness: 67.99210 stdev: 28.08404
-Best fitness: 222.07937 - size: (14, 10) - species 23 - id 30
-Average adjusted fitness: 0.193
-Mean genetic distance 2.610, standard deviation 0.748
-Population of 46 members in 2 species:
+Population's average fitness: 6.74742 stdev: 351.84722
+Best fitness: 359.93665 - size: (9, 7) - species 43 - id 149
+Average adjusted fitness: 0.855
+Mean genetic distance 2.939, standard deviation 0.845
+Population of 49 members in 5 species:
    ID   age  size  fitness  adj fit  stag
   ====  ===  ====  =======  =======  ====
-    23   80    26    222.1    0.216     0
-    25   14    20     80.8    0.170     8
+    43   73     9    359.9    0.813     6
+    46   66    11     82.3    0.883    16
+    48   28     9    185.0    0.824    10
+    49   15    10     82.7    0.876     4
+    50   10    10     82.9    0.880     3
 Total extinctions: 0
-Generation time: 144.219 sec
-Saving checkpoint to neat-checkpoint-367
+Generation time: 225.353 sec
+Saving checkpoint to neat-checkpoint-780
 
 Best genome:
-Key: 30
-Fitness: 222.07937174532657
+Key: 149
+Fitness: 359.9366543239682
 Nodes:
-	0 DefaultNodeGene(key=0, bias=2.094714123021479, response=1.0, activation=relu, aggregation=sum)
-	3580 DefaultNodeGene(key=3580, bias=4.334096133928574, response=1.0, activation=relu, aggregation=sum)
-	5857 DefaultNodeGene(key=5857, bias=3.95636985911874, response=1.0, activation=relu, aggregation=sum)
-	6104 DefaultNodeGene(key=6104, bias=1.6234102399870483, response=1.0, activation=relu, aggregation=sum)
-	6918 DefaultNodeGene(key=6918, bias=3.291666891997825, response=1.0, activation=relu, aggregation=sum)
-	7159 DefaultNodeGene(key=7159, bias=4.374506839377789, response=1.0, activation=relu, aggregation=sum)
-	7331 DefaultNodeGene(key=7331, bias=4.226675675898731, response=1.0, activation=relu, aggregation=sum)
-	7381 DefaultNodeGene(key=7381, bias=1.4061279808606941, response=1.0, activation=relu, aggregation=sum)
-	7512 DefaultNodeGene(key=7512, bias=2.5943109798547757, response=1.0, activation=relu, aggregation=sum)
-	7528 DefaultNodeGene(key=7528, bias=0.9599911429470934, response=1.0, activation=relu, aggregation=sum)
-	7680 DefaultNodeGene(key=7680, bias=2.657722962978065, response=1.0, activation=relu, aggregation=sum)
-	7724 DefaultNodeGene(key=7724, bias=2.0265077674331344, response=1.0, activation=relu, aggregation=sum)
-	7785 DefaultNodeGene(key=7785, bias=4.506358401267848, response=1.0, activation=relu, aggregation=sum)
-	7838 DefaultNodeGene(key=7838, bias=4.393335563115271, response=1.0, activation=relu, aggregation=sum)
+	0 DefaultNodeGene(key=0, bias=5.107540404102432, response=1.0, activation=relu, aggregation=sum)
+	15461 DefaultNodeGene(key=15461, bias=4.095829772713265, response=1.0, activation=relu, aggregation=sum)
+	15771 DefaultNodeGene(key=15771, bias=4.193683400791911, response=1.0, activation=relu, aggregation=sum)
+	16057 DefaultNodeGene(key=16057, bias=5.0461674086347275, response=1.0, activation=relu, aggregation=sum)
+	16117 DefaultNodeGene(key=16117, bias=4.90898825576612, response=1.0, activation=relu, aggregation=sum)
+	16244 DefaultNodeGene(key=16244, bias=3.878088834418279, response=1.0, activation=relu, aggregation=sum)
+	16291 DefaultNodeGene(key=16291, bias=1.336697076309783, response=1.0, activation=relu, aggregation=sum)
+	16309 DefaultNodeGene(key=16309, bias=1.7951571397671473, response=1.0, activation=relu, aggregation=sum)
+	16323 DefaultNodeGene(key=16323, bias=0.81792652780626, response=1.0, activation=relu, aggregation=sum)
 Connections:
-	DefaultConnectionGene(key=(-1, 3580), weight=2.7339900105998214, enabled=True)
-	DefaultConnectionGene(key=(-1, 6918), weight=0.010719789235041022, enabled=True)
-	DefaultConnectionGene(key=(0, 6104), weight=2.770188540506159, enabled=True)
-	DefaultConnectionGene(key=(0, 7724), weight=-0.5826541887947111, enabled=True)
-	DefaultConnectionGene(key=(3580, 0), weight=4.291250923795272, enabled=True)
-	DefaultConnectionGene(key=(3580, 5857), weight=-3.2012405822390684, enabled=False)
-	DefaultConnectionGene(key=(3580, 7331), weight=-0.41850461620632107, enabled=False)
-	DefaultConnectionGene(key=(7381, 5857), weight=0.2225585687205246, enabled=False)
-	DefaultConnectionGene(key=(7381, 7528), weight=2.471195439718241, enabled=True)
-	DefaultConnectionGene(key=(7381, 7838), weight=-0.053951576636750605, enabled=True)
-	DefaultConnectionGene(key=(7528, 5857), weight=-0.6963368249181883, enabled=True)
-	DefaultConnectionGene(key=(7680, 5857), weight=-1.673103348475532, enabled=False)
-	DefaultConnectionGene(key=(7680, 7724), weight=1.6197490881759378, enabled=True)
-	DefaultConnectionGene(key=(7838, 5857), weight=2.2755782982930928, enabled=True)
-End time: Sat Oct 12 12:21:16 2024 (144.28756427764893 total seconds)
+	DefaultConnectionGene(key=(-4, 0), weight=3.8427080639425637, enabled=True)
+	DefaultConnectionGene(key=(-4, 16244), weight=-0.13865686235277663, enabled=False)
+	DefaultConnectionGene(key=(-3, 16291), weight=3.037023155570581, enabled=True)
+	DefaultConnectionGene(key=(-1, 0), weight=-7.703354771791836, enabled=True)
+	DefaultConnectionGene(key=(15771, 15461), weight=-2.61000698437238, enabled=True)
+	DefaultConnectionGene(key=(16057, 16117), weight=-1.0708860406187677, enabled=False)
+	DefaultConnectionGene(key=(16057, 16244), weight=-0.47519737851945765, enabled=True)
+	DefaultConnectionGene(key=(16244, 16117), weight=2.563585775715334, enabled=False)
+	DefaultConnectionGene(key=(16309, 16117), weight=-1.5784531350790312, enabled=True)
+	DefaultConnectionGene(key=(16323, 15771), weight=1.7347071051346, enabled=True)
+End time: Tue Oct 15 09:20:25 2024 (225.39075350761414 total seconds)

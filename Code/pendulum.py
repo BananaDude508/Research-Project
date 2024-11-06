@@ -5,7 +5,7 @@
 
 import pygame
 pygame.init()
-from math import sin,cos,pi
+from numpy import sin,cos,pi
 from engine_math import clamped
 
 class Pendulum:
@@ -66,13 +66,15 @@ class Pendulum:
 
         # The 4 components here are summed to find acceleration
         sum1 = (cos(theta)/R)*x0dd
-        # sum2 = -(cos(theta)/R)*y0dd
+        # sum2 = (cos(theta)/R)*y0dd
         sum2 = 0 # Sum 2 calculation always results in 0, because the cart should never move in Y position
         sum3 = (b/(m*R*R))*thetad
         sum4 = (g/R)*sin(theta)
 
         self.angular_acceleration = -sum1-sum2-sum3-sum4 
-
+        
+        -(cos(theta)/R)*x0dd-(b/(m*R*R))*thetad-(g/R)*sin(theta)
+        
         self.angular_velocity += self.angular_acceleration * delta_time # Calculate velocity
 
         self.angle += self.angular_velocity # Calculate angle

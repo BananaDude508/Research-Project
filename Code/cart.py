@@ -1,6 +1,6 @@
 import pygame
 pygame.init()
-from engine_math import clamped,sign
+from engine_math import clamped
 from pendulum import Pendulum
 
 class Cart:

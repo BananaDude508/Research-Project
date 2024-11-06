@@ -3,12 +3,13 @@ pygame.init()
 from game import Game
 from pendulum import Pendulum
 from cart import Cart
-from math import pi
+from numpy import pi
 from engine_math import *
 import neat
 import pickle
 import time
 import sys
+
 
 def read_from_pickle(path):
     with open(path, 'rb') as file:
@@ -96,7 +97,7 @@ def run_neat(config_path):
         config_path
     )
 
-    population = neat.Checkpointer.restore_checkpoint('neat-checkpoint-210')
+    population = neat.Checkpointer.restore_checkpoint('neat-checkpoint-780')
     # population = neat.Population(config)
     
 
@@ -105,7 +106,7 @@ def run_neat(config_path):
     population.add_reporter(stats)
     population.add_reporter(neat.Checkpointer(1))
 
-    winner = population.run(eval_genomes)
+    winner = population.run(eval_genomes, 1)
     return winner
 
 if __name__ == '__main__':
@@ -127,7 +128,7 @@ if __name__ == '__main__':
     start_time = time.time()
 
     winner = run_neat(config_path)
-
+    
     print("\nBest genome:\n{!s}".format(winner))
     net = neat.nn.FeedForwardNetwork.create(winner, config)
     
